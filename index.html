@@ -12,25 +12,49 @@
         <div class="row-fluid">
           <h1>基金定投公式</h1>
         </div>
-        <form dta-bind="foreach:investments">
+        <div class="row-fluid">
+        <form>
+          <div class="form-group">
+            <label>选择基金</label>
+            <select class="form-control" data-bind="options:investments,optionsText:'Name',optionsValue:$data,value:curInvestment">
+              <option data-bind="text:$data.Name"></option>
+
+            </select>
+          </div>
           <div class="input-group">
             <label>Name:</label>
-            <input type="text" data-bind="value:name"></input>
+            <input type="text" data-bind="value:curInvestment().Name"></input>
           </div>
           <div class="input-group">
             <label>First Hand Money</label>
-            <span class="input-group-addon">$</span>
-            <input type="text" data-bind="value:firstHand" class="form-control" aria-label="Amount (to the nearest dollar)">
-            <span class="input-group-addon">.00</span>
+            <span>$</span>
+            <input type="text" data-bind="value:curInvestment().firstHand" class="form-control" aria-label="Amount (to the nearest dollar)">
+            <span>.00</span>
           </div>
           <div class="input-group">
-            <label>This is the Round<span data-bind="text:roundNum"></span></label>
+            <label>This is the Round :</label>
+            <span>NO.</span>
+            <input type="text" data-bind="value:curInvestment().roundNum"></input>
+
+          </div>
+          <div class="input-group">
+            <label>请输入当前市值</label>
+            <span>$</span>
+            <input type="text" data-bind="value:curInvestment().currentVal"></input>
+          </div>
+
+          <div class="input-group">
+            <label>You need to invest:</label>
+            <input type="text" data-bind="value:currentHand"></input>
           </div>
         </form>
+      </div>
 
       </div>
+      <script src="js/jquery.js"></script>
       <script src="js/knockout-3.4.2.js"></script>
       <script src="js/bootstrap.min.js"></script>
+      <script src="js/app.js"></script>
     </body>
 
 </html>

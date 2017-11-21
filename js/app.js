@@ -1,13 +1,39 @@
-function AppViewModel(){
-  this.investment={
-    firstHand: ko.observable(0),
-    roundNum: ko.observalble(0),
-    name: ko.observalble("50AH"),
-    currenValue:ko.observalble(0),
-    currentHand: ko.observable(0)
+var AppViewModel=function(){
+
+  //var self=this.investment;
+  //this.currentHand=ko.computed(function(investment){
+    //return investment.roundNum()*investment.firstHand()-investment.currentHand();
+//  });
+  this.investments=ko.observableArray([{
+    firstHand:ko.observable(500),
+    roundNum:ko.observable(0),
+    Name:ko.observable("50AH"),
+    currentVal:ko.observable(0),
+  },{
+    firstHand:ko.observable(300),
+    roundNum:ko.observable(0),
+    Name:ko.observable("红利基金"),
+    currentVal:ko.observable(0),
+  }]);
+  this.curInvestment=ko.observable(this.investments()[0]);
+
+  var self=this.curInvestment();
+  this.currentHand=ko.computed
+      (function(){return self.roundNum()*self.firstHand()-self.currentVal()},this);
+
+
+
+
+
+
+  this.addInvestment=function(investment){
+    this.invsetments.push({
+      
+    });
+
   };
-  this.investments=ko.observableArray();
-  this.invsetments.push(this.investment());
+
+
 }
 //Acitivats knock out
 ko.applyBindings(new AppViewModel());

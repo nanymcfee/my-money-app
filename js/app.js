@@ -1,9 +1,4 @@
 var AppViewModel=function(){
-
-  //var self=this.investment;
-  //this.currentHand=ko.computed(function(investment){
-    //return investment.roundNum()*investment.firstHand()-investment.currentHand();
-//  });
   this.investments=ko.observableArray([{
     firstHand:ko.observable(500),
     roundNum:ko.observable(0),
@@ -17,15 +12,10 @@ var AppViewModel=function(){
   }]);
   this.curInvestment=ko.observable(this.investments()[0]);
 
-  //var self=this.curInvestment();
-  this.currentHand=ko.computed
-      (function(){return this.curInvestment().roundNum()*this.curInvestment().firstHand()-this.curInvestment().currentVal()},this);
-
-
-
-
-
-
+  this.currentHand=ko.computed(function(){
+    return this.curInvestment().roundNum()*this.curInvestment().firstHand()-this.curInvestment().currentVal()},
+    this);
+    //add new stock into the plan
   this.addInvestment=function(investment){
     this.invsetments.push({
 

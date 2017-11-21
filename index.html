@@ -16,36 +16,51 @@
         <form>
           <div class="form-group">
             <label>选择基金</label>
-            <select class="form-control" data-bind="options:investments,optionsText:'Name',optionsValue:$data,value:curInvestment">
-              <option data-bind="text:$data.Name"></option>
+            <select class="form-control" data-bind="options:investments,
+            optionsText:'Name',optionsValue:$data,value:curInvestment">
+
 
             </select>
           </div>
           <div class="input-group">
             <label>Name:</label>
-            <input type="text" class="form-control form-control-lg" data-bind="value:curInvestment().Name"></input>
+            <input id="name" type="text" class="form-control form-control-lg"
+            data-bind="value:curInvestment().Name"></input>
           </div>
           <div class="input-group">
             <label>First Hand Money</label>
             <span>$</span>
-            <input type="text" class="form-control form-control-lg" data-bind="value:curInvestment().firstHand" class="form-control" aria-label="Amount (to the nearest dollar)">
+            <input id="first" type="text" class="form-control form-control-lg"
+            data-bind="value:curInvestment().firstHand" class="form-control"
+            aria-label="Amount (to the nearest dollar)">
             <span>.00</span>
           </div>
           <div class="input-group">
             <label>This is the Round :</label>
             <span>NO.</span>
-            <input type="text" class="form-control form-control-lg" data-bind="value:curInvestment().roundNum"></input>
+            <input id="rounds" type="text" class="form-control form-control-lg"
+            data-bind="value:curInvestment().roundNum"></input>
 
           </div>
           <div class="input-group">
             <label>请输入当前市值</label>
             <span>$</span>
-            <input type="text" class="form-control form-control-lg" data-bind="value:curInvestment().currentVal"></input>
+            <input id="curval" type="text" class="form-control form-control-lg"
+             data-bind="value:curInvestment().currentVal"></input>
           </div>
+
 
           <div class="input-group">
             <label>You need to invest:</label>
-            <input type="text" class="form-control form-control-lg" data-bind="value:currentHand"></input>
+            <input type="text" class="form-control form-control-lg"
+            data-bind="value:currentHand"></input>
+          </div>
+          <div class="input-group">
+            <label>Add item</label>
+            <input type="text" class="form-control form-control-lg"
+             data-bind="value:itemName,valueUpdate:'afterkeydown'"/>
+            <button class="btn" data-bind="enable:itemName().length>0,
+              click:addInvestment">Add</button>
           </div>
         </form>
       </div>

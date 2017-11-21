@@ -17,9 +17,9 @@ var AppViewModel=function(){
   }]);
   this.curInvestment=ko.observable(this.investments()[0]);
 
-  var self=this.curInvestment();
+  //var self=this.curInvestment();
   this.currentHand=ko.computed
-      (function(){return self.roundNum()*self.firstHand()-self.currentVal()},this);
+      (function(){return this.curInvestment().roundNum()*this.curInvestment().firstHand()-this.curInvestment().currentVal()},this);
 
 
 
@@ -28,7 +28,7 @@ var AppViewModel=function(){
 
   this.addInvestment=function(investment){
     this.invsetments.push({
-      
+
     });
 
   };

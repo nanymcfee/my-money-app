@@ -6,6 +6,7 @@
       <title>Nanymcfee Money App</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
     </head>
     <body>
       <div class="container-fluid">
@@ -25,13 +26,13 @@
           <div class="input-group">
             <label>Name:</label>
             <input id="name" type="text" class="form-control form-control-lg"
-            data-bind="value:curInvestment().Name"></input>
+            data-bind="value:curInvestment().Name">
           </div>
           <div class="input-group">
             <label>First Hand Money</label>
             <span>$</span>
             <input id="first" type="text" class="form-control form-control-lg"
-            data-bind="value:curInvestment().firstHand" class="form-control"
+            data-bind="value:curInvestment().firstHand"
             aria-label="Amount (to the nearest dollar)">
             <span>.00</span>
           </div>
@@ -39,21 +40,21 @@
             <label>This is the Round :</label>
             <span>NO.</span>
             <input id="rounds" type="text" class="form-control form-control-lg"
-            data-bind="value:curInvestment().roundNum"></input>
+            data-bind="value:curInvestment().roundNum">
 
           </div>
           <div class="input-group">
             <label>请输入当前市值</label>
             <span>$</span>
             <input id="curval" type="text" class="form-control form-control-lg"
-             data-bind="value:curInvestment().currentVal"></input>
+             data-bind="value:curInvestment().currentVal">
           </div>
 
 
           <div class="input-group">
             <label>You need to invest:</label>
             <input type="text" class="form-control form-control-lg"
-            data-bind="value:currentHand"></input>
+            data-bind="value:currentHand">
           </div>
           <div class="input-group">
             <label>Add item</label>
